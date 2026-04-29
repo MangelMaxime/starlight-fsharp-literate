@@ -1,0 +1,69 @@
+---
+title: Getting Started
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+A [Starlight](https://starlight.astro.build/) plugin to write your documentation using F# files.
+
+## Prerequisites
+
+You need to have a Starlight project set up. If you don't have one, you can create a new Starlight
+project by following the [official Starlight documentation](https://starlight.astro.build/getting-started).
+
+This plugin also requires Node.js 22.12.0 or later.
+
+## Installation
+
+<Steps>
+
+1. Install the plugin using your favorite package manager:
+
+    <Tabs>
+        <TabItem label="npm" icon='npm'>
+            ```bash
+            npm install starlight-fsharp-literate
+            ```
+        </TabItem>
+        <TabItem label="Yarn" icon='yarn'>
+            ```bash
+            yarn add starlight-fsharp-literate
+            ```
+        </TabItem>
+        <TabItem label="pnpm" icon='pnpm'>
+            ```bash
+            pnpm add starlight-fsharp-literate
+            ```
+        </TabItem>
+    </Tabs>
+
+2. Configure the plugin in your `astro.config.mjs` file:
+
+    ```javascript ins={3} ins={7}
+    import { defineConfig } from 'astro/config';
+    import starlight from '@astrojs/starlight';
+    import fsharpLiterate from 'starlight-fsharp-literate';
+
+    export default defineConfig({
+        integrations: [
+            fsharpLiterate(),
+            starlight({
+                // ... your Starlight config
+            })
+        ]
+    });
+    ```
+
+3. You can now write `*.source.fsx` files in your documentation pages in `src/content/docs/`
+and the plugin will automatically generate a corresponding `*.mdx` file that goes through
+Starlight's pipeline.
+
+    :::tip
+
+    When running this plugin, you will see that it generates a `content/docs/.gitignore` file.
+
+    It is recommended to add this file in your top level `.gitignore`.
+    :::
+
+</Steps>

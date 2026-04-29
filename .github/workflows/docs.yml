@@ -1,0 +1,50 @@
+# Run this workflow when the "test" workflow completes successfully on the main branch.
+#
+# Please adapt the "test" workflow name and the branch filter to your needs.
+on:
+  workflow_run:
+    workflows: ["test"]
+    types:
+      - completed
+    branches:
+      - main
+  workflow_dispatch:
+
+name: Docs depolyment
+
+jobs:
+
+  docs-deploy:
+    runs-on: ubuntu-latest
+    name: Deploy docs
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: 'package.json'
+
+      - uses: pnpm/action-setup@v6
+
+      - name: Restore .NET tools
+        run: dotnet tool restore
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Tests
+        run: npx astro build
+        working-directory: ./docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/dist

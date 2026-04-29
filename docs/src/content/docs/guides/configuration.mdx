@@ -1,0 +1,102 @@
+---
+title: Configuration
+---
+
+import { FileTree } from '@astrojs/starlight/components';
+
+The starlight-fsharp-literate plugin can be configured in `astro.config.mjs` configuration file.
+
+It supports two modes: `inline` and `mirror`. The default is `inline`.
+
+```ts {4}
+export default defineConfig({
+    integrations: [
+        fsharpLiterate({
+            // Configuration options go here
+        }),
+        starlight({
+            // ... starlight options
+        }),
+    ],
+});
+```
+
+## Modes
+
+### `inline` (default)
+
+**Type:** `{ mode: "inline", base?: string }`
+
+**Default:** `{ mode: "inline", base: "src/content/docs" }`
+
+Source files live alongside their generated output inside the same directory.
+
+<FileTree>
+- src
+    - astro.config.mjs
+    - content/docs/
+        - guide.source.fsx   you edit this
+        - guide.mdx          generated, gitignored
+</FileTree>
+
+`inline` mode is the default and is used when no options are provided.
+
+```ts
+fsharpLiterate()
+// equivalent to:
+fsharpLiterate({
+    mode: "inline",
+    base: "src/content/docs"
+})
+```
+
+The object contains the following properties:
+
+- `mode`: `"inline"` (required) — selects inline mode
+- `base`: `string` (optional) — directory scanned recursively for source files
+
+    Default is `"src/content/docs"`
+
+### `mirror`
+
+**Type:** `{ mode: "mirror", sourceDir?: string, outputDir?: string, sourceExtensions?: string[] }`
+
+**Default:** `{ mode: "mirror", sourceDir: "src/content/fsharp-literate", outputDir: "src/content/docs" }`
+
+Source files live in a dedicated directory that mirrors the output directory structure.
+
+<FileTree>
+- src
+    - astro.config.mjs
+    - content/
+        - fsharp-literate/
+            - guide.fsx       you edit this
+        - docs/
+            - guide.mdx       generated, gitignored
+</FileTree>
+
+```ts
+fsharpLiterate({ mode: "mirror" })
+// equivalent to:
+fsharpLiterate({
+    mode: "mirror",
+    sourceDir: "src/content/fsharp-literate",
+    outputDir: "src/content/docs",
+    sourceExtensions: [".fsx", ".fs"]
+})
+```
+
+The object contains the following properties:
+
+- `mode`: `"mirror"` (required) — selects mirror mode
+- `sourceDir`: `string` (optional) — directory scanned recursively for source files
+
+    Default is `"src/content/fsharp-literate"`
+
+- `outputDir`: `string` (optional) — directory where generated `.mdx` files are written, preserving the relative structure of `sourceDir`
+
+    Default is `"src/content/docs"`
+
+- `sourceExtensions`: `string[]` (optional) — file extensions used to identify source files
+
+    Default is `[".fsx", ".fs"]`

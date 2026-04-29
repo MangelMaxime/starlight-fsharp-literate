@@ -1,0 +1,37 @@
+---
+title: Starlight F# Literate
+description: Starlight plugin to write your documentation using F# files
+template: splash
+hero:
+  tagline: Starlight plugin to write your documentation using F# files
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Getting Started
+      link: /guides/getting-started/
+      icon: rocket
+    - text: View on GitHub
+      link: https://github.com/MangelMaxime/starlight-fsharp-literate
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Next steps
+
+<CardGrid stagger>
+	<Card title="Install the plugin" icon="puzzle">
+		Check the [Getting Started guide](./guides/getting-started/) for installation instructions.
+	</Card>
+	<Card title="Configure the plugin" icon="setting">
+		Register the plugin in your `astro.config.mjs` file.
+	</Card>
+	<Card title="Build your site" icon="rocket">
+		Get intelligence and syntax highlighting for your `.fsx` files ensuring your
+        documentation is always up-to-date and accurate.
+	</Card>
+	<Card title="Read the docs" icon="open-book">
+		Learn more in the [Starlight F# Literate](./guides/getting-started/) documentation.
+	</Card>
+</CardGrid>
