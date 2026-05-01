@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-    <img alt="CI Status" src="https://badgen.net/github/checks/MangelMaxime/fable-form" />
+    <img alt="CI Status" src="https://badgen.net/github/checks/MangelMaxime/starlight-fsharp-literate/main" />
     <a href="https://github.com/MangelMaxime/starlight-fsharp-literate/blob/main/LICENSE">
         <img alt="License" src="https://badgen.net/github/license/MangelMaxime/starlight-fsharp-literate" />
     </a>
