@@ -1,9 +1,12 @@
 {
     "name": "starlight-fsharp-literate",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "F# Literate (.fsx) file support for Astro Starlight",
     "type": "module",
     "packageManager": "pnpm@10.33.2",
+    "repository": {
+        "url": "https://github.com/MangelMaxime/starlight-fsharp-literate"
+    },
     "engines": {
         "node": ">=22.12.0"
     },
