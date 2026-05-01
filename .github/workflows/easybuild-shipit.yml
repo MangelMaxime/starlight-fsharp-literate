@@ -48,16 +48,11 @@ jobs:
     if: "startsWith(github.event.workflow_run.head_commit.message, 'chore: release ')"
     steps:
       - uses: actions/checkout@v6
-      # Configure how you want to publish your package, e.g. using the NuGet CLI, dotnet CLI, NPM, etc.
-      # It is recommanded to use Trusted Publishing to avoid having to manage API keys in your repository.
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
-        with:
-          global-json-file: global.json
 
-      - name: Build, Test and Release
-        run: |
-            dotnet pack src/ -c Release -o ./nupkgs
-            dotnet nuget push ./nupkgs/*.nupkg --api-key $NUGET_KEY
-        env:
-          NUGET_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: 'package.json'
+
+      - name: Release
+        run: npm publish
