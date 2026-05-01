@@ -5,6 +5,7 @@ import fsharpLiterate from 'starlight-fsharp-literate';
 
 // https://astro.build/config
 export default defineConfig({
+    base: '/starlight-fsharp-literate/',
     integrations: [
         fsharpLiterate(),
         starlight({
