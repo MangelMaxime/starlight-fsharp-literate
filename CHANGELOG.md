@@ -1,5 +1,5 @@
 ---
-last_commit_released: da6ecb683b24f39e74ea854a2a3974546723220e
+last_commit_released: 87038a9de529bca5f02737c5b00fd623441bf754
 name: starlight-fsharp-literate
 updaters:
   - package.json:
@@ -15,6 +15,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 This changelog is generated using [EasyBuild.ShipIt](https://github.com/easybuild-org/EasyBuild.ShipIt).
 
 ⚠ Only edit the front matter metadata at the top of this file. All other changes will be overwritten when a new release is created.
+
+## 1.1.0 - 2026-05-06
+
+### 🚀 Features
+
+* Add `(*** show ***)` command ([87038a9](https://github.com/MangelMaxime/starlight-fsharp-literate/commit/87038a9de529bca5f02737c5b00fd623441bf754))
+
+<strong><small>[View changes on Github](https://github.com/MangelMaxime/starlight-fsharp-literate/compare/da6ecb683b24f39e74ea854a2a3974546723220e..87038a9de529bca5f02737c5b00fd623441bf754)</small></strong>
 
 ## 1.0.0 - 2026-05-01
 
