@@ -247,6 +247,52 @@ let x = 1
         expect(result!.body).toBe("```fsharp\nlet x = 1\n```")
     })
 
+    test("show command after hide reveals code", async (t) => {
+        const result = tryParse(`${FM}
+
+(*** hide ***)
+
+let hiddenSetup = true
+
+(*** show ***)
+
+let visibleCode = 42
+`)
+
+        await expectToMatchFile(result, t.task.name)
+    })
+
+    test("show command in non-hidden context shows code", async (t) => {
+        const result = tryParse(`${FM}
+
+(**
+
+Some prose.
+
+*)
+
+(*** show ***)
+
+let x = 1
+
+let y = 2
+`)
+
+        await expectToMatchFile(result, t.task.name)
+    })
+
+    test("show command at end of file produces nothing", () => {
+        const result = tryParse(`${FM}
+
+(*** hide ***)
+
+let hidden = true
+
+(*** show ***)`)
+
+        expect(result!.body).toBe("")
+    })
+
     test("verbatim block passes content through as-is", async (t) => {
         const result = tryParse(`${FM}
 

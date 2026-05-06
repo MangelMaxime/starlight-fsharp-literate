@@ -50,6 +50,14 @@ function processFile(lines: string[]): string[] {
             continue;
         }
 
+        if (trimmedLine.startsWith("(*** show ***)")) {
+            const endIdx = tail.findIndex((line) => line.trim().startsWith("(**"));
+            const codeLines = trimBlankLines(endIdx === -1 ? tail : tail.slice(0, endIdx));
+            remaining = endIdx === -1 ? [] : tail.slice(endIdx);
+            pushSection(result, codeLines.length > 0 ? ["```fsharp", ...codeLines, "```"] : []);
+            continue;
+        }
+
         if (trimmedLine.startsWith("(*** verbatim ***)")) {
             const idx = tail.findIndex((line) => line.trim() === "(*** end-verbatim ***)");
             if (idx === -1) {

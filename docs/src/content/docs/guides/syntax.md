@@ -27,6 +27,8 @@ This means that the code snippets are not executed or type-checked, so you won't
 
 ## Commands
 
+### hide
+
 Any code between `(*** hide ***)` and the next doc comment will be hidden from the generated MDX output.
 
 ```fs
@@ -37,6 +39,26 @@ let answer = 42
 
 (**
 From here the code is visible
+*)
+```
+
+### show
+
+Any code between `(*** show ***)` and the next doc comment will be shown as a code block. This is useful to end a `(*** hide ***)` section and reveal specific code.
+
+```fs
+(*** hide ***)
+
+// This setup code is hidden
+let hiddenSetup = true
+
+(*** show ***)
+
+// This code is visible again
+let visibleCode = 42
+
+(**
+From here prose continues
 *)
 ```
 
