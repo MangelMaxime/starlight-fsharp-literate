@@ -1,5 +1,5 @@
 ---
-last_commit_released: 87038a9de529bca5f02737c5b00fd623441bf754
+last_commit_released: 25d4ad44632c22e6cfc33e7cc4416c6ec380d5ef
 name: starlight-fsharp-literate
 updaters:
   - package.json:
@@ -15,6 +15,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 This changelog is generated using [EasyBuild.ShipIt](https://github.com/easybuild-org/EasyBuild.ShipIt).
 
 ⚠ Only edit the front matter metadata at the top of this file. All other changes will be overwritten when a new release is created.
+
+## 1.1.1 - 2026-05-12
+
+### 🐞 Bug Fixes
+
+* Install Husky hooks only when installing the package locally (not as a dependency) ([25d4ad4](https://github.com/MangelMaxime/starlight-fsharp-literate/commit/25d4ad44632c22e6cfc33e7cc4416c6ec380d5ef))
+
+<strong><small>[View changes on Github](https://github.com/MangelMaxime/starlight-fsharp-literate/compare/87038a9de529bca5f02737c5b00fd623441bf754..25d4ad44632c22e6cfc33e7cc4416c6ec380d5ef)</small></strong>
 
 ## 1.1.0 - 2026-05-06
 
