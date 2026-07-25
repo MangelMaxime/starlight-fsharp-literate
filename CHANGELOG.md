@@ -1,5 +1,5 @@
 ---
-last_commit_released: 25d4ad44632c22e6cfc33e7cc4416c6ec380d5ef
+last_commit_released: 20e124a2a02a77298bf2f2b2fef5201fe88b3786
 name: starlight-fsharp-literate
 updaters:
   - package.json:
@@ -15,6 +15,14 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 This changelog is generated using [EasyBuild.ShipIt](https://github.com/easybuild-org/EasyBuild.ShipIt).
 
 ⚠ Only edit the front matter metadata at the top of this file. All other changes will be overwritten when a new release is created.
+
+## 1.2.0 - 2026-07-25
+
+### 🚀 Features
+
+* Bump to astro 7 ([20e124a](https://github.com/MangelMaxime/starlight-fsharp-literate/commit/20e124a2a02a77298bf2f2b2fef5201fe88b3786))
+
+<strong><small>[View changes on Github](https://github.com/MangelMaxime/starlight-fsharp-literate/compare/25d4ad44632c22e6cfc33e7cc4416c6ec380d5ef..20e124a2a02a77298bf2f2b2fef5201fe88b3786)</small></strong>
 
 ## 1.1.1 - 2026-05-12
 
